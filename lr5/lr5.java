@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class lr5 {// Метод для перевірки, чи є число простим
+    // Метод для перевірки, чи є число простим
     public static boolean isPrime(int num) {
         if (num <= 1) return false;  // Числа менші або рівні 1 не є простими
         for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -27,12 +28,12 @@ public class lr5 {// Метод для перевірки, чи є число п
 
         // Частина 2: Введення трьох цілих чисел і перевірка на простоту
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nВведіть три цілих числа:");
+        System.out.println("\nВведiть три цiлих числа:");
         int num1 = scanner.nextInt();
         int num2 = scanner.nextInt();
         int num3 = scanner.nextInt();
 
-        System.out.println("Числа, які не є простими:");
+        System.out.println("Числа, якi не є простими:");
         if (!isPrime(num1)) {
             System.out.println(num1);
         }
@@ -42,5 +43,27 @@ public class lr5 {// Метод для перевірки, чи є число п
         if (!isPrime(num3)) {
             System.out.println(num3);
         }
+
+        // Частина 3: Введення рядків до появи "done" і виведення найдовшого рядка
+        scanner.nextLine();  // Очищення буфера після введення чисел
+        String longest = "";  // Змінна для збереження найдовшого рядка
+        System.out.println("\nВводьте рядки (для завершення введiть 'done'):");
+
+        while (true) {
+            String input = scanner.nextLine();
+            
+            // Перевірка на завершення введення
+            if (input.equals("done")) {
+                break;
+            }
+            
+            // Оновлення найдовшого рядка, якщо поточний більший
+            if (input.length() > longest.length()) {
+                longest = input;
+            }
+        }
+        
+        // Виведення найдовшого рядка
+        System.out.println("Найдовший рядок: " + longest);
     }
 }
